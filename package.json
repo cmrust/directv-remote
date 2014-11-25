@@ -1,0 +1,18 @@
+{
+  "name": "directv-remote",
+  "version": "0.0.0",
+  "description": "Manipulate DirecTV STBs over their REST API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/raptastics/directv-remote"
+  },
+  "author": "Chris Rust <crust4@gmail.com> (http://tnnl.in/)",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/raptastics/directv-remote/issues"
+  }
+}
