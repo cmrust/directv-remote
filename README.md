@@ -1,9 +1,18 @@
 directv-remote
 ==============
 
-Overview
---------
 Node.js module for manipulating DirecTV STBs over their REST API
+
+Usage
+-----
+
+Install from npm:
+
+    npm install directv-remote
+
+For full functionality make sure to enable external device access on your cable box:
+
+    Menu > Settings > Whole-Home > External Device > Allow
 
 API
 ---
