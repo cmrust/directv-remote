@@ -301,7 +301,7 @@ module.exports.Remote = function(ipAddress) {
                     callback(new Error('Parsing the request body failed: ' + err));
                 }
                 if (typeof parsedBody !== 'undefined' && typeof parsedBody.status !== 'undefined') {
-                    console.log('Path:',parsedBody.status.query);
+                    //console.log('Path:',parsedBody.status.query);
                     if (parsedBody.status.code !== 200) {
                         callback(new Error('Received bad response code: ' + parsedBody.status.code + ' (' + parsedBody.status.msg + ')'));
                     } else {
