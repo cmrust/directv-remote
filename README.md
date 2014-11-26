@@ -7,7 +7,7 @@ Node.js module for manipulating DirecTV STBs over their REST API
 
 API
 ---
-## DirecTV.validateIP(ipAddr, callback)
+### DirecTV.validateIP(ipAddr, callback)
 Verify that an IP address is in fact that of a valid DirecTV Set Top Box.
 
 The parameter **ipAddr** is required and expected to be a string.
@@ -29,7 +29,7 @@ DirecTV.validateIP(ipAddr, function(err) {
 '192.168.1.103 is a valid STB'
 ```
 
-## DirecTV.Remote(ipAddr)
+### DirecTV.Remote(ipAddr)
 Instantiates a DirecTV Remote object. The resulting object will be referred to as Remote from here forward.
 
 The parameter **ipAddr** is required and expected to be a string.
@@ -40,7 +40,7 @@ Example:
 var Remote = new DirecTV.Remote(ipAddr);
 ```
 
-## Remote.getOptions([callback])
+### Remote.getOptions([callback])
 Lists the available endpoints on the system.
 
 The optional **callback** function accepts two parameters, an error and the response.
@@ -58,7 +58,7 @@ Remote.getOptions(function(err,response) {
 Remote.getOptions();
 ```
 
-## Remote.getLocations([type], [callback])
+### Remote.getLocations([type], [callback])
 Returns an array of the networked set top boxes.
 
 The parameter **type** is an optional parameter. The documentation labels it as an int and during my testing the only values that don't return *Forbidden* are 0 and 1. With Whole-Home DVR (Genie STBs) enabled in my house, passing 1 shows currently offline STBs.
@@ -71,7 +71,7 @@ Example:
 Remote.getLocations(1);
 ```
 
-## Remote.getSerialNum([clientAddr], [callback])
+### Remote.getSerialNum([clientAddr], [callback])
 Returns the serial number of the Set Top Box.
 
 The parameter **clientAddr** is an optional string used to specify a separate networked STB. This is the same **clientAddr** referenced in the response from getLocations().
@@ -84,7 +84,7 @@ Example:
 Remote.getSerialNum('88F7C7DA0264');
 ```
 
-## Remote.getVersion([callback])
+### Remote.getVersion([callback])
 Returns Set Top Box version information as well as a systemTime property, which is the current epoch timestamp.
 
 The optional **callback** function accepts two parameters, an error and the response.
@@ -95,7 +95,7 @@ Example:
 Remote.getVersion();
 ```
 
-## Remote.getMode([clientAddr], [callback])
+### Remote.getMode([clientAddr], [callback])
 Returns the mode that the Set Top Box is currently operating in. It seems this returned mode property reflects the status active (0) or inactive (1), though this isn't documented behavior.
 
 The parameter **clientAddr** is an optional string used to specify a separate networked STB. This is the same **clientAddr** referenced in the response from getLocations().
@@ -108,7 +108,7 @@ Example:
 Remote.getMode('88f7c7da1456');
 ```
 
-## Remote.processKey(key, [clientAddr], [callback])
+### Remote.processKey(key, [clientAddr], [callback])
 Send standard remote control key presses to the STB.
 
 The parameter **key** is a required string value, that corresponds to buttons on the remote, such as:
@@ -124,7 +124,7 @@ Example:
 Remote.processKey('guide', '88F7C7DA0264');
 ```
 
-## Remote.processCommand(cmd, [callback])
+### Remote.processCommand(cmd, [callback])
 Send command request to the STB.
 
 The parameter **cmd** is a required hex value, such as:
@@ -159,7 +159,7 @@ Example:
 Remote.processCommand('FA91')
 ```
 
-## Remote.getProgInfo(channel, [startTime], [clientAddr], [callback])
+### Remote.getProgInfo(channel, [startTime], [clientAddr], [callback])
 Returns program information for the specified channel, time and STB.
 
 The parameter **channel** is required and is an int.
@@ -178,7 +178,7 @@ Remote.getProgInfo(300, 1416999600)
 // returns info about the program airing on channel 300 at 1416999600
 ```
 
-## Remote.getTuned([clientAddr], [callback])
+### Remote.getTuned([clientAddr], [callback])
 Returns information about the program currently being viewed.
 
 The parameter **clientAddr** is an optional string used to specify a separate networked STB. This is the same **clientAddr** referenced in the response from getLocations().
@@ -191,7 +191,7 @@ Example:
 Remote.getTuned()
 ```
 
-## Remote.tune(channel, [clientAddr], [callback])
+### Remote.tune(channel, [clientAddr], [callback])
 Tunes the STB to a specific channel.
 
 The parameter **channel** is required and is an int.
