@@ -1,6 +1,6 @@
 {
   "name": "directv-remote",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Manipulate DirecTV STBs over their REST API",
   "main": "index.js",
   "scripts": {
