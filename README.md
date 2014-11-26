@@ -33,9 +33,7 @@ DirecTV.validateIP(ipAddr, function(err) {
     console.log(ipAddr, 'is a valid STB');
 });
 
-// returns
-
-'192.168.1.103 is a valid STB'
+// returns '192.168.1.103 is a valid STB'
 ```
 
 ### DirecTV.Remote(ipAddr)
