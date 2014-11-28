@@ -1,7 +1,7 @@
 directv-remote
 ==============
 
-Node.js module for manipulating DirecTV STBs over their REST API
+Node.js module for manipulating DirecTV STBs (Set Top Boxes) over their REST API
 
 Setup
 -----
@@ -19,9 +19,11 @@ Usage Notes
 
 See the API spec below for actual usage examples.
 
-Functions can be called with or without callback functions. If you choose to forego a callback function, it's output will be logged instead of returned.
+Instantiate a Remote class using the IP address of a valid STB, then call any of the Remote's functions to actually talk to the box.
 
-If you choose not to pass in an optional parameter, but are still using the callback function, you'll need to pass undefined in place of the optional param. I plan to refactor to remove this annoyance, but as of now it's not a priority.
+Functions can be called with or without callback functions. If you choose to forego a callback function, it's output will be logged to the console instead of returned.
+
+If you choose not to pass in an optional parameter but are still using the callback function, you'll need to pass undefined in place of the missing param. I plan to refactor to remove this annoyance, but as of now it's not a priority.
 
 There is a Mocha test suite in the test.js file, that consists of a number of integration tests. These tests require a Whole-Home DVR setup (Genie STBs) and actually send commands to the boxes, which expect real responses.
 
@@ -79,7 +81,7 @@ Remote.getOptions();
 ```
 
 ### Remote.getLocations([type], [callback])
-Returns an array of the networked set top boxes.
+Returns an array of the networked Set Top Boxes.
 
 The parameter **type** is an optional parameter. The documentation labels it as an int and during my testing the only values that don't return *Forbidden* are 0 and 1. With Whole-Home DVR (Genie STBs) enabled in my house, passing 1 shows currently offline STBs.
 
