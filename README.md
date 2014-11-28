@@ -25,7 +25,7 @@ Functions can be called with or without callback functions. If you choose to for
 
 If you choose not to pass in an optional parameter but are still using the callback function, you'll need to pass undefined in place of the missing param. I plan to refactor to remove this annoyance, but as of now it's not a priority.
 
-There is a Mocha test suite in the test.js file, that consists of a number of integration tests. These tests require a Whole-Home DVR setup (Genie STBs) and actually send commands to the boxes, which expect real responses.
+There is a Mocha test suite in the test.js file, that consists of a number of integration tests. These tests require a Whole-Home DVR setup (Genie STBs) and actually send commands to the boxes while expecting real responses. This is also a good example of this library's functionality.
 
 API
 ---
