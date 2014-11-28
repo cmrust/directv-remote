@@ -74,6 +74,8 @@ Remote.getOptions(function(err,response) {
 // has the same effect as
 
 Remote.getOptions();
+
+// for compactness, callback functions will not be shown in the rest of the examples
 ```
 
 ### Remote.getLocations([type], [callback])
