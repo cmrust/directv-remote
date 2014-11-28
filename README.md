@@ -227,3 +227,10 @@ Remote.tune(299, '88F7C7DA0264')
 Credit
 ------
 This code is loosely based on the research done by Jeremy Whitlock for his [directv-remote-api](https://github.com/whitlockjc/directv-remote-api) project. It has been rewritten from the ground up to work on Node.js, without the jQuery and Underscore.js deps.
+
+To-Do List
+----------
+
+* implement key holds
+* write better API examples that show manipulation of returned data
+* refactor to combine the multiple parameters of each function into an options object
