@@ -3,7 +3,7 @@ var qs = require("querystring");
 
 module.exports.validateIP = function(IP_ADDRESS, callback){
     if (!/^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)/.test(IP_ADDRESS)) {
-        callback(new Error('This is not a valid IPv4 address: ' + IP_ADDRESS));
+        return callback(new Error('This is not a valid IPv4 address: ' + IP_ADDRESS));
     }
 
     var options = {
@@ -12,7 +12,7 @@ module.exports.validateIP = function(IP_ADDRESS, callback){
         path: '/info/getLocations'
     };
 
-    const TIMEOUT_DURATION = 3000;
+    const TIMEOUT_DURATION = 1500;
 
     var req = http.request(options, function(res) {
         var body = "";
@@ -51,8 +51,11 @@ module.exports.validateIP = function(IP_ADDRESS, callback){
     req.end();
 }
 
-module.exports.Remote = function(ipAddress) {
-    this.IP_ADDRESS = ipAddress;
+module.exports.Remote = function(ipAddr) {
+    if (typeof ipAddr === 'undefined') {
+        throw new Error('ipAddr is a required parameter');
+    }
+    this.IP_ADDRESS = ipAddr;
     this.port = '8080';
 
     // Lists the available endpoints on the system
@@ -298,20 +301,20 @@ module.exports.Remote = function(ipAddress) {
                 try {
                     var parsedBody = JSON.parse(body);
                 } catch (err) {
-                    callback(new Error('Parsing the request body failed: ' + err));
+                    return callback(new Error('Parsing the request body failed: ' + err));
                 }
                 if (typeof parsedBody !== 'undefined' && typeof parsedBody.status !== 'undefined') {
                     //console.log('Path:',parsedBody.status.query);
                     if (parsedBody.status.code !== 200) {
-                        callback(new Error('Received bad response code: ' + parsedBody.status.code + ' (' + parsedBody.status.msg + ')'));
+                        return callback(new Error('Received bad response code: ' + parsedBody.status.code + ' (' + parsedBody.status.msg + ')'));
                     } else {
                         delete parsedBody.status;
                     }
                 }
-                callback(null, parsedBody);
+                return callback(null, parsedBody);
             });
         }).on('error', function(err) {
-            callback(new Error('HTTP request failed: ' + err));
+            return callback(new Error('HTTP request failed: ' + err));
         });
     };
 };
