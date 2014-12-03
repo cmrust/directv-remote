@@ -34,7 +34,7 @@ Verify that an IP address is in fact that of a valid DirecTV Set Top Box.
 
 The parameter **ipAddr** is required and expected to be a string.
 
-No arguments other than a possible exception are given to the completion **callback**.
+No arguments other than a possible exception are given to the completion **callback**. If err is undefined, this it is a valid Set Top Box.
 
 Example:
 ```
