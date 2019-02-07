@@ -10,7 +10,7 @@
     "type": "git",
     "url": "https://github.com/raptastics/directv-remote"
   },
-  "author": "Chris Rust <crust4@gmail.com> (http://tnnl.in/)",
+  "author": "Chris Rust",
   "license": "BSD",
   "bugs": {
     "url": "https://github.com/raptastics/directv-remote/issues"
